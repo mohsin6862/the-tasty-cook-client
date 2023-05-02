@@ -1,7 +1,10 @@
 import React from 'react';
-import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { Button, Carousel, Container, Form, Nav, Navbar } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import slider2 from '../../assets/n1.jpg'
+import slider3 from '../../assets/n2.jpg'
+import slider4 from '../../assets/pexels-pixabay-262978.jpg'
 
 
 const Header = () => {
@@ -26,7 +29,7 @@ const Header = () => {
 
                 <Navbar bg="light" expand="lg">
                     <Container fluid>
-                        
+
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
                                 className="me-auto my-2 my-lg-0 text-center"
@@ -37,8 +40,8 @@ const Header = () => {
                                 <Nav.Link href="#action2">Recipes</Nav.Link>
                                 <Nav.Link href="#action2">Blog</Nav.Link>
                                 <Nav.Link href="#action2">Login</Nav.Link>
-                             
-                                
+
+
                             </Nav>
                             <Form className="d-flex">
                                 <Form.Control
@@ -54,6 +57,50 @@ const Header = () => {
                 </Navbar>
 
             </div>
+
+            {/* banner */}
+
+            <div className='my-5'>
+                <Carousel variant="dark">
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 "
+                            src={slider2}
+                            alt="First slide"
+                        />
+                        <Carousel.Caption>
+                            <h5>First slide label</h5>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100 "
+                            src={slider4}
+                            alt="Second slide"
+                        />
+                        <Carousel.Caption>
+                            <h5>Second slide label</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src={slider3}
+                            alt="Third slide"
+                        />
+                        <Carousel.Caption>
+                            <h5>Third slide label</h5>
+                            <p>
+                                Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                            </p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+
+            </div>
+            
         </Container>
     );
 };
