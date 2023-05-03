@@ -1,18 +1,28 @@
 import Main from "../Layouts/Main";
 
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import Recipes from "../components/Recipe/Recipes";
 import Login from "../components/Login/Login";
 import LoginLayout from "../Layouts/LoginLayout/LoginLayout";
+import Register from "../components/Registration/Register";
 
 const router =createBrowserRouter([
     {
-        path:'/login',
+        path:'/',
         element:<LoginLayout></LoginLayout>,
         children:[
             {
+                path:'/',
+                element:<Navigate to='/recipes'></Navigate>
+
+            },
+            {
                 path:'/login',
                 element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
             }
         ]
 
@@ -21,6 +31,7 @@ const router =createBrowserRouter([
         path:'/',
         element:<Main></Main>,
         children:[
+            
             {
                 path:'/recipes',
                 element:<Recipes></Recipes>,
