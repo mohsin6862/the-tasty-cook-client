@@ -43,12 +43,7 @@ const router =createBrowserRouter([
                 element:<Recipes></Recipes>,
                 loader:()=>fetch('http://localhost:5000/recipes')
             },
-            {
-                path:'/apply',
-                element:<RightNav></RightNav>,
-              
-               
-            }
+          
         ]
       
     },

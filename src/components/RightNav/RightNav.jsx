@@ -13,24 +13,28 @@ const RightNav = () => {
     }, [])
 
     return (
-        <Container>
-            <h4>Apply As Chef</h4>
+        <div>
+            <h4 className='text-center text-warning my-3'>Apply As Chef</h4>
           
-          {
-            apply.map(job=>   <Card style={{ width: '16rem' }}>
+            {
+            apply.map(job=>   <Card className='text-center mb-2' style={{ width: '16rem' }}>
             <Card.Img variant="top" src={job.image} />
             <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
+              <Card.Title>{job.jobName}</Card.Title>
+              <Card.Title className='text-start'>Requrements:</Card.Title>
+
+              <Card.Text className='text-start'>
+                <p className=''>1. {job.req1} </p>
+                <p className=''>2. {job.req2}</p>
+                <p className=''>3. {job.req3}</p>
+                <p className=''>4. {job.experience} experience</p>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">APPLY NOW</Button>
             </Card.Body>
           </Card>)
           }
 
-        </Container>
+        </div>
     );
 };
 
