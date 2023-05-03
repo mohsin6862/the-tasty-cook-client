@@ -5,6 +5,7 @@ import Recipes from "../components/Recipe/Recipes";
 import Login from "../components/Login/Login";
 import LoginLayout from "../Layouts/LoginLayout/LoginLayout";
 import Register from "../components/Registration/Register";
+import Terrms from "../components/TermsAndConditions/Terrms";
 
 const router =createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router =createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/terms',
+                element:<Terrms></Terrms>
             }
         ]
 
