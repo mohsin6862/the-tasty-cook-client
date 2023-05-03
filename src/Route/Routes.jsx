@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import LoginLayout from "../Layouts/LoginLayout/LoginLayout";
 import Register from "../components/Registration/Register";
 import Terrms from "../components/TermsAndConditions/Terrms";
+import RightNav from "../components/RightNav/RightNav";
 
 const router =createBrowserRouter([
     {
@@ -43,6 +44,9 @@ const router =createBrowserRouter([
                 loader:()=>fetch('http://localhost:5000/recipes')
             },
             {
+                path:'/apply',
+                element:<RightNav></RightNav>,
+              
                
             }
         ]

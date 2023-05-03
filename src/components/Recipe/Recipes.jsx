@@ -20,10 +20,10 @@ const Recipes = () => {
 
         {
             recipe.map(allRecipe => <Container >
-                <Card className="text-center w-50 mx-auto mb-5">
+                <Card className="text-center w-100 mx-auto mb-5">
       <Card.Header><h5>{allRecipe.experience}</h5> of Experience</Card.Header>
       <Card.Body>
-      <Card.Img style={{width:'300px', height:'300px'}} className='w-75  ' variant="top" src={allRecipe.image} />
+      <Card.Img style={{width:'400px', height:'300px'}} className='w-75  ' variant="top" src={allRecipe.image} />
         <Card.Title className='my-3'>{allRecipe.chefName}</Card.Title>
         <Card.Text>
           {allRecipe.chefBio}
