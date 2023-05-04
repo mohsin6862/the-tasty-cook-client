@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Form, Image, Nav, Navbar } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaTwitter, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
@@ -54,7 +54,7 @@ const NavigationBar = () => {
                                 <Button variant="outline-success">Search</Button>
                             </Form>
                             <Nav className=''>
-                            {user && <Nav.Link href="#deets"><FaUser style={{fontSize:'2rem'}}></FaUser> {user.email}</Nav.Link>}
+                            {user && <Nav.Link href="#deets"><Image title={user.displayName} style={{width:'40px',height:'40px'}} src={user.photoURL} roundedCircle /></Nav.Link>}
                             <Nav.Link eventKey={2} href="#memes">
                             {user? <Button variant="secondary" onClick={handleLogout}>Logout</Button> : <Link to='/login'><Button variant="secondary" >Login</Button></Link> }
                             </Nav.Link>

@@ -5,7 +5,7 @@ import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
 
-    const {createUser}= useContext (AuthContext);
+    const {createUser,UpdateProfileInfo}= useContext (AuthContext);
     const [accepted,setAccepted]=useState(false);
     const [error ,setError]=useState('')
     const [success,setSuccess]=useState('')
@@ -15,10 +15,10 @@ const Register = () => {
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
-        const photo = form.photo.value;
+        const photoURL = form.photoURL.value;
         const password= form.password.value;
         const confirm= form.confirm.value; 
-        console.log(name,photo, email,password,confirm)
+        console.log(name,photoURL, email,password,confirm)
         setError('')
         if(confirm !== password){
             setError('Password did not match')
@@ -32,6 +32,8 @@ const Register = () => {
         .then(result=>{
             const createdUser = result.user;
             console.log(createdUser)
+            UpdateProfileInfo(result.user,name,photoURL)
+
             setSuccess('Register Successful')
             navigate('/recipes')
        
@@ -57,7 +59,7 @@ const Register = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="text" name='photo' placeholder="Your photo url" />
+                        <Form.Control type="text" name='photoURL' placeholder="Your photo url" />
 
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
