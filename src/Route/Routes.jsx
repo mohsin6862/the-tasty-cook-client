@@ -7,6 +7,8 @@ import LoginLayout from "../Layouts/LoginLayout/LoginLayout";
 import Register from "../components/Registration/Register";
 import Terrms from "../components/TermsAndConditions/Terrms";
 import RightNav from "../components/RightNav/RightNav";
+import AllRecipe from "../components/Allrecipe/AllRecipe";
+import SingleRecipe from "../Layouts/LoginLayout/SingleRecipe";
 
 const router =createBrowserRouter([
     {
@@ -43,10 +45,24 @@ const router =createBrowserRouter([
                 element:<Recipes></Recipes>,
                 loader:()=>fetch('http://localhost:5000/recipes')
             },
-          
+         
         ]
       
     },
+    {
+        path:'/',
+        element:<SingleRecipe></SingleRecipe>,
+        children:[
+       
+
+            {
+                path:'recipes/:id',
+                element:<AllRecipe></AllRecipe>,
+               loader:({params})=>fetch(`http://localhost:5000/recipes/${params.id}`)
+            }
+          
+        ]
+    }
   
 ])
 export default router

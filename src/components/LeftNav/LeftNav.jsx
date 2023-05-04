@@ -6,17 +6,17 @@ import { Link } from 'react-router-dom';
 const LeftNav = () => {
     const [feature, setFeature] = useState()
     useEffect(() => {
-        fetch('http://localhost:5000/features')
+        fetch('/public/data/features.json')
             .then(res => res.json())
             .then(data => setFeature(data))
     }, [])
     return (
         <div>
-            {/* {
-                feature.map(f => <div className='border mb-2 p-2 hover:bg-primary'>
+            {
+                feature?.map(f => <div key={f._id} className='border mb-2 p-2 hover:bg-primary'>
                     <h4><Link>{f.category}</Link></h4>
                 </div>)
-            } */}
+           }
              
 
 

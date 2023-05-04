@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import AllRecipe from '../Allrecipe/AllRecipe';
 import { FaArrowRight } from 'react-icons/fa';
 
@@ -19,7 +19,7 @@ const Recipes = () => {
                 <h1 className='text-warning text-center  my-5'>Meet Our Chef's</h1>
 
         {
-            recipe.map(allRecipe => <Container >
+            recipe.map(allRecipe => <Container key={allRecipe._id}>
                 <Card className="text-center w-100 mx-auto mb-5">
       <Card.Header><h5>{allRecipe.experience}</h5> of Experience</Card.Header>
       <Card.Body>
@@ -29,7 +29,7 @@ const Recipes = () => {
           {allRecipe.chefBio}
           <p className='fs-4'>Total Recipes: {allRecipe.recipes}</p>
         </Card.Text>
-        <Button variant="danger">View Recipes <FaArrowRight></FaArrowRight></Button>
+       <Link to={`/recipes/${allRecipe._id}`}> <Button variant="danger">View Recipes <FaArrowRight></FaArrowRight></Button></Link>
       </Card.Body>
       <Card.Footer className="text-muted">
         <div>

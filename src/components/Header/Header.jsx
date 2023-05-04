@@ -25,8 +25,8 @@ const Header = () => {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h5>First slide label</h5>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            <Button variant="warning">View all recipes</Button>
+                            <p className='text-white'>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -36,8 +36,8 @@ const Header = () => {
                             alt="Second slide"
                         />
                         <Carousel.Caption>
-                            <h5>Second slide label</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <Button variant="warning">MEET OUR CHEF'S</Button>
+                            <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
@@ -47,8 +47,9 @@ const Header = () => {
                             alt="Third slide"
                         />
                         <Carousel.Caption>
-                            <h5>Third slide label</h5>
-                            <p>
+                      
+                        <Button variant="warning">Apply as Chef</Button>
+                            <p className='text-white'>
                                 Praesent commodo cursus magna, vel scelerisque nisl consectetur.
                             </p>
                         </Carousel.Caption>

@@ -16,8 +16,8 @@ const RightNav = () => {
         <div>
             <h4 className='text-center text-warning my-3'>Apply As Chef</h4>
           
-            {/* {
-            apply.map(job=>   <Card className='text-center mb-2' style={{ width: '16rem' }}>
+            {
+            apply?.map(job=>   <Card key={job._id} className='text-center mb-2' style={{ width: '16rem' }}>
             <Card.Img variant="top" src={job.image} />
             <Card.Body>
               <Card.Title>{job.jobName}</Card.Title>
@@ -32,7 +32,7 @@ const RightNav = () => {
               <Button variant="primary">APPLY NOW</Button>
             </Card.Body>
           </Card>)
-          } */}
+          }
 
         </div>
     );
