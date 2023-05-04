@@ -6,7 +6,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 const AllRecipe = () => {
     const allrecipe = useLoaderData()
     console.log(allrecipe)
-    const { Recipe_image,Recipe_image1,Recipe_image2,recipeName,recipeName1,recipeName2,direction,ingredients1,ingredients2,ingredients3,ingredients4,  } = allrecipe
+    const { Recipe_image,Recipe_image1,Recipe_image2,recipeName,recipeName1,recipeName2,direction,ingredients1,ingredients2,ingredients3,ingredients4, rating } = allrecipe
     return (
         <div>
             <CardGroup>
@@ -72,7 +72,10 @@ const AllRecipe = () => {
                      </div>
                     </Card.Body>
                     <Card.Footer>
-                    <small className="text-muted">Watch this recipe on <Link>Youtube</Link></small>
+                  <div className='d-flex'>
+                  <small className="text-muted flex-grow-1">Watch this recipe on <Link>Youtube</Link></small>
+                  <p>Rating: {rating}</p>
+                  </div>
                     </Card.Footer>
                 </Card>
             </CardGroup>
