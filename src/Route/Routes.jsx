@@ -14,78 +14,78 @@ import Blog from "../components/Blog/Blog";
 import BlogLayout from "../Layouts/BlogLayout";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 
-const router =createBrowserRouter([
+const router = createBrowserRouter([
     {
-        path:'/',
-        element:<LoginLayout></LoginLayout>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
+        path: '/',
+        element: <LoginLayout></LoginLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path:'/',
-                element:<Navigate to='/recipes'></Navigate>
+                path: '/',
+                element: <Navigate to='/recipes'></Navigate>
 
             },
-           
+
             {
-                path:'/login',
-                element:<Login></Login>
+                path: '/login',
+                element: <Login></Login>
             },
             {
-                path:'/register',
-                element:<Register></Register>
+                path: '/register',
+                element: <Register></Register>
             },
             {
-                path:'/terms',
-                element:<Terrms></Terrms>
+                path: '/terms',
+                element: <Terrms></Terrms>
             },
-          
+
         ]
 
     },
     {
-        path:'/',
-        element:<Main></Main>,
-        
-        children:[
-            
-            {
-                path:'/recipes',
-                element:<Recipes></Recipes>,
-                errorElement:<ErrorPage></ErrorPage>,
-                loader:()=>fetch('http://localhost:5000/recipes')
-            },
-         
-        ]
-      
-    },
-    {
-        path:'/',
-        element:<SingleRecipe></SingleRecipe>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
-       
+        path: '/',
+        element: <Main></Main>,
+
+        children: [
 
             {
-                path:'recipes/:id',
-                element:<PrivateRoute><AllRecipe></AllRecipe></PrivateRoute>,
-               loader:({params})=>fetch(`http://localhost:5000/recipes/${params.id}`)
+                path: '/recipes',
+                element: <Recipes></Recipes>,
+                errorElement: <ErrorPage></ErrorPage>,
+                loader: () => fetch('https://chef-recipe-hunter-server-site-mohsin6862.vercel.app/recipes')
+            },
+
+        ]
+
+    },
+    {
+        path: '/',
+        element: <SingleRecipe></SingleRecipe>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+
+
+            {
+                path: 'recipes/:id',
+                element: <PrivateRoute><AllRecipe></AllRecipe></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://chef-recipe-hunter-server-site-mohsin6862.vercel.app/recipes/${params.id}`)
             }
-          
+
         ]
     },
     {
-        path:'/',
-        element:<BlogLayout></BlogLayout>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
-            
+        path: '/',
+        element: <BlogLayout></BlogLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+
             {
-                path:'/blog',
-                element:<Blog></Blog>
+                path: '/blog',
+                element: <Blog></Blog>
 
             }
         ]
     }
-  
+
 ])
 export default router

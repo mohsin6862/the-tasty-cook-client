@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import { FaArrowDown, FaArrowRight, FaGoogle } from 'react-icons/fa';
 
 
 
@@ -72,8 +73,8 @@ const LogIn = () => {
          
         </Form.Text>
     </Form>
-    <Button className='my-5' onClick={handleGoogle} variant="primary" type="submit">
-        Log In With Google
+    <Button className='my-5' onClick={handleGoogle} variant="primary" type="submit"> <FaGoogle></FaGoogle> 
+          Log In With Google
       </Button>
 
            

@@ -7,7 +7,7 @@ const RightNav = () => {
     const [apply, setApply] = useState()
 
     useEffect(() => {
-        fetch('http://localhost:5000/apply')
+        fetch('https://chef-recipe-hunter-server-site-mohsin6862.vercel.app/apply')
             .then(res => res.json())
             .then(data => setApply(data))
     }, [])
