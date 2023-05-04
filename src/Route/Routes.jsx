@@ -9,6 +9,9 @@ import Terrms from "../components/TermsAndConditions/Terrms";
 import RightNav from "../components/RightNav/RightNav";
 import AllRecipe from "../components/Allrecipe/AllRecipe";
 import SingleRecipe from "../Layouts/LoginLayout/SingleRecipe";
+import PrivateRoute from "../PrivateRoute";
+import Blog from "../components/Blog/Blog";
+import BlogLayout from "../Layouts/BlogLayout";
 
 const router =createBrowserRouter([
     {
@@ -20,6 +23,7 @@ const router =createBrowserRouter([
                 element:<Navigate to='/recipes'></Navigate>
 
             },
+           
             {
                 path:'/login',
                 element:<Login></Login>
@@ -31,7 +35,8 @@ const router =createBrowserRouter([
             {
                 path:'/terms',
                 element:<Terrms></Terrms>
-            }
+            },
+          
         ]
 
     },
@@ -57,10 +62,22 @@ const router =createBrowserRouter([
 
             {
                 path:'recipes/:id',
-                element:<AllRecipe></AllRecipe>,
+                element:<PrivateRoute><AllRecipe></AllRecipe></PrivateRoute>,
                loader:({params})=>fetch(`http://localhost:5000/recipes/${params.id}`)
             }
           
+        ]
+    },
+    {
+        path:'/',
+        element:<BlogLayout></BlogLayout>,
+        children:[
+            
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+
+            }
         ]
     }
   

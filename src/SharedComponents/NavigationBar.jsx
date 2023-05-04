@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Container, Form, Nav, Navbar } from 'react-bootstrap';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const NavigationBar = () => {
+    const {user,Logout}=useContext(AuthContext)
+    const handleLogout=() =>{
+        Logout()
+    }    
     return (
         <Container>
              <div className='mt-5  d-flex align-items-center'>
@@ -34,8 +39,8 @@ const NavigationBar = () => {
                             >
                                 <Nav.Link href="/">Home</Nav.Link>
                                 <Nav.Link href="#action2">Recipes</Nav.Link>
-                                <Nav.Link href="#action2">Blog</Nav.Link>
-                                <Nav.Link href="/login">Login</Nav.Link>
+                                <Nav.Link href="/blog">Blog</Nav.Link>
+                           
 
 
                             </Nav>
@@ -48,6 +53,12 @@ const NavigationBar = () => {
                                 />
                                 <Button variant="outline-success">Search</Button>
                             </Form>
+                            <Nav className=''>
+                            {user && <Nav.Link href="#deets"><FaUser style={{fontSize:'2rem'}}></FaUser> {user.email}</Nav.Link>}
+                            <Nav.Link eventKey={2} href="#memes">
+                            {user? <Button variant="secondary" onClick={handleLogout}>Logout</Button> : <Link to='/login'><Button variant="secondary" >Login</Button></Link> }
+                            </Nav.Link>
+                        </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>

@@ -1,17 +1,49 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
 
-    const [accepted,setAccepted]=useState()
-
-    const handleRegister = (event) => {
+    const {createUser}= useContext (AuthContext);
+    const [accepted,setAccepted]=useState(false);
+    const [error ,setError]=useState('')
+    const [success,setSuccess]=useState('')
+    const navigate = useNavigate()
+    const handleRegister = (event)=>{
         event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password= form.password.value;
+        const confirm= form.confirm.value; 
+        console.log(name,photo, email,password,confirm)
+        setError('')
+        if(confirm !== password){
+            setError('Password did not match')
+            return
+        }
+        else if(password.length<8){
+            setError('Password must be 8 characters or longer')
+            return
+        }
+        createUser(email,password)
+        .then(result=>{
+            const createdUser = result.user;
+            console.log(createdUser)
+            setSuccess('Register Successful')
+            navigate('/recipes')
+       
+        })
+        .catch(error=>{
+            console.log(error.message)
+            setError(error.message)
+        })
     }
-
-    const handleChecked=()=>{
-        
+    const handleChecked =(event)=>{
+      console.log(event.target.checked)
+      setAccepted(event.target.checked)
     }
     return (
         <div>
@@ -42,6 +74,11 @@ const Register = () => {
                         <Form.Label>Confirm Password</Form.Label>
                         <Form.Control type="password" name='confirm' placeholder="Confirm Password" />
                     </Form.Group>
+                    <Form.Text className="text-danger">
+
+                        <p>{error}</p>
+                        <p className='text-success'>{success}</p>
+                    </Form.Text>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check
                             onClick={handleChecked}

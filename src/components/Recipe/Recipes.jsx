@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Container } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
 import AllRecipe from '../Allrecipe/AllRecipe';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowDown, FaArrowRight } from 'react-icons/fa';
 
 const Recipes = () => {
 
-    const recipe = useLoaderData()
+    const recipe = useLoaderData();
+    const [seeAll,setSeeAll]=useState(false)
 
    
     console.log(recipe)
+    const handleSeeAll =()=>{
+        setSeeAll(true)
+
+    }
 
 
     return (
@@ -19,7 +24,7 @@ const Recipes = () => {
                 <h1 className='text-warning text-center  my-5'>Meet Our Chef's</h1>
 
         {
-            recipe.map(allRecipe => <Container key={allRecipe._id}>
+            recipe.slice(0,seeAll? 7 : 4).map(allRecipe => <Container key={allRecipe._id}>
                 <Card className="text-center w-100 mx-auto mb-5">
       <Card.Header><h5>{allRecipe.experience}</h5> of Experience</Card.Header>
       <Card.Body>
@@ -39,6 +44,13 @@ const Recipes = () => {
     </Card>
             </Container>)
         }
+        <div  className='text-center' >
+       <span onClick={handleSeeAll}>
+       {!seeAll &&
+         <Button variant="danger">See All <FaArrowDown></FaArrowDown></Button>
+       }
+       </span>
+        </div>
         </Container>
     );
 };
