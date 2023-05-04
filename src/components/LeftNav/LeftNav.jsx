@@ -11,7 +11,7 @@ const LeftNav = () => {
             .then(data => setFeature(data))
     }, [])
     return (
-        <div className='fixed'>
+        <div className=''>
             {
                 feature?.map(f => <div key={f._id} className='border mb-2 p-2 hover:bg-primary'>
                     <h4><Link>{f.category}</Link></h4>

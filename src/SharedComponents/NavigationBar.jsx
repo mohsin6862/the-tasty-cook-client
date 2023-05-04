@@ -37,9 +37,9 @@ const NavigationBar = () => {
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link href="/">Home</Nav.Link>
-                                <Nav.Link href="#action2">Recipes</Nav.Link>
-                                <Nav.Link href="/blog">Blog</Nav.Link>
+                                <Nav.Link href="/" active  className={({active})=>(active? variant="primary" : '')}>Home</Nav.Link>
+                                <Nav.Link href="#action2" className={({isActive})=>(isActive? 'text-primary' : '')}>Recipes</Nav.Link>
+                                <Nav.Link href="/blog" active variant="primary"  className={({isActive})=>(isActive? 'text-primary' : '')}>Blog</Nav.Link>
                            
 
 

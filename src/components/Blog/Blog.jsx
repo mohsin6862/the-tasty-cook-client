@@ -1,11 +1,16 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import NavigationBar from '../../SharedComponents/NavigationBar';
 
 const Blog = () => {
     return (
         <Container>
-            <h3 className='text-warning my-5 text-center'>Question And Answer</h3>
+            <div className='d-flex'>
+            <h3 className='text-warning my-5 text-center flex-grow-1'>Question And Answer</h3>
+            <div>
+            <Button variant='danger'>React to Pdf</Button>
+            </div>
+            </div>
 
             <h4 className='text-danger'>Q1. How to validate React props using PropType?</h4>
             <h6>Answer: <small>Controlled components or inputs are components whose value is tied to the React state of the components whereas uncontrolled components are the ones whose value is controlled or stored in the DOM directly and can only be accessed from the DOM.</small></h6>

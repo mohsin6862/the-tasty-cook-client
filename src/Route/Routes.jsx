@@ -12,11 +12,13 @@ import SingleRecipe from "../Layouts/LoginLayout/SingleRecipe";
 import PrivateRoute from "../PrivateRoute";
 import Blog from "../components/Blog/Blog";
 import BlogLayout from "../Layouts/BlogLayout";
+import ErrorPage from "../components/ErrorPage/ErrorPage";
 
 const router =createBrowserRouter([
     {
         path:'/',
         element:<LoginLayout></LoginLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
@@ -43,11 +45,13 @@ const router =createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        
         children:[
             
             {
                 path:'/recipes',
                 element:<Recipes></Recipes>,
+                errorElement:<ErrorPage></ErrorPage>,
                 loader:()=>fetch('http://localhost:5000/recipes')
             },
          
@@ -57,6 +61,7 @@ const router =createBrowserRouter([
     {
         path:'/',
         element:<SingleRecipe></SingleRecipe>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
        
 
@@ -71,6 +76,7 @@ const router =createBrowserRouter([
     {
         path:'/',
         element:<BlogLayout></BlogLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             
             {
