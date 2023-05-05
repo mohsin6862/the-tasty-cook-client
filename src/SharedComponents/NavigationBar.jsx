@@ -94,9 +94,7 @@ const NavigationBar = () => {
             <NavLink exact to='/recipes' className='nav-link' activeClassName='active'>
               Home
             </NavLink>
-            <NavLink to='' className='nav-link' activeClassName='active'>
-              Recipes
-            </NavLink>
+            
             <NavLink to='/blog' className='nav-link' activeClassName='active'>
               Blog
             </NavLink>
