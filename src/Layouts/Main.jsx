@@ -13,19 +13,19 @@ const Main = () => {
             <Header></Header>
             <Container>
                 <Row>
-                    <Col lg={3}>
+                    <Col className='d-none d-lg-block' lg={3}>
                         <LeftNav></LeftNav>
-                    <RightNav></RightNav>
-                        </Col>
-                    <Col lg={9}>
-                       <Outlet></Outlet>
+                        <RightNav></RightNav>
                     </Col>
-                  
+                    <Col lg={9}>
+                        <Outlet></Outlet>
+                    </Col>
+
                 </Row>
-                
+
             </Container>
             <Footer></Footer>
-            
+
         </div>
     );
 };

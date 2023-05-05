@@ -16,12 +16,12 @@ const LeftNav = () => {
                 feature?.map(f => <div key={f._id} className='border mb-2 p-2 hover:bg-primary'>
                     <h4><Link>{f.category}</Link></h4>
                 </div>)
-           }
-             
+            }
+
 
 
             <div className='my-5'>
-               <Link to='/login'> <Button className='mb-2' variant="outline-primary"> <FaGoogle /> LogIn With Google</Button></Link>
+                <Link to='/login'> <Button className='mb-2' variant="outline-primary"> <FaGoogle /> LogIn With Google</Button></Link>
                 <Link to='/login'><Button variant="outline-secondary"><FaGithub /> LogIn With Github</Button></Link>
 
             </div>

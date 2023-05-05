@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
-import AllRecipe from '../Allrecipe/AllRecipe';
 import { FaArrowDown, FaArrowRight } from 'react-icons/fa';
 import NewRecipes from '../NewRecipes/NewRecipes';
 import LazyLoad from 'react-lazyload';
@@ -63,8 +62,8 @@ const Recipes = () => {
       )}
       <div className='mt-5'>
 
-      <h1 className="text-warning text-center   ">Checkout Our New-Recipes</h1>
-      <NewRecipes></NewRecipes>
+        <h1 className="text-warning text-center   ">Checkout Our New-Recipes</h1>
+        <NewRecipes></NewRecipes>
 
       </div>
     </Container>
