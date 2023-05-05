@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import { Button, Container, Form, Image, Nav, Navbar } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaTwitter, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const NavigationBar = () => {
-    const {user,Logout}=useContext(AuthContext)
-    const handleLogout=() =>{
+    const { user, Logout } = useContext(AuthContext)
+    const handleLogout = () => {
         Logout()
-    }    
+    }
     return (
         <Container>
-             <div className='mt-5  d-flex align-items-center'>
+            <div className='mt-5  d-flex align-items-center'>
                 <div className='flex-grow-1'>
                     <p className='text-danger text-center fs-6 '> 22 QUICK AND EASY RECIPES IN 30 MINUTES (OR LESS) + 5 CHEF SECRETS TO MAKE YOU A BETTER COOK! </p>
                 </div>
@@ -32,17 +32,28 @@ const NavigationBar = () => {
                     <Container fluid>
 
                         <Navbar.Collapse id="navbarScroll">
-                            <Nav
+                            {/* <Nav
                                 className="me-auto my-2 my-lg-0 text-center"
                                 style={{ maxHeight: '100px' }}
                                 navbarScroll
                             >
-                                <Nav.Link href="/" active  className={({active})=>(active? variant="primary" : '')}>Home</Nav.Link>
-                                <Nav.Link href="#action2" className={({isActive})=>(isActive? 'text-primary' : '')}>Recipes</Nav.Link>
-                                <Nav.Link href="/blog" active variant="primary"  className={({isActive})=>(isActive? 'text-primary' : '')}>Blog</Nav.Link>
+                                <Nav.Link href="/" activeClassName="active">Home</Nav.Link>
+                                <Nav.Link href="#action2" activeClassName="active">Recipes</Nav.Link>
+                                <Nav.Link href="/blog" >Blog</Nav.Link>
                            
 
 
+                            </Nav> */}
+                            <Nav className="me-auto my-2 my-lg-0 text-center" style={{ maxHeight: '100px' }} navbarScroll>
+                                <NavLink exact to="/recipes" className="nav-link" activeClassName="active">
+                                    Home
+                                </NavLink>
+                                <NavLink to="" className="nav-link" activeClassName="active">
+                                    Recipes
+                                </NavLink>
+                                <NavLink to="/blog" className="nav-link" activeClassName="active">
+                                    Blog
+                                </NavLink>
                             </Nav>
                             <Form className="d-flex">
                                 <Form.Control
@@ -54,11 +65,11 @@ const NavigationBar = () => {
                                 <Button variant="outline-success">Search</Button>
                             </Form>
                             <Nav className=''>
-                            {user && <Nav.Link href="#deets"><Image title={user.displayName} style={{width:'40px',height:'40px'}} src={user.photoURL} roundedCircle /></Nav.Link>}
-                            <Nav.Link eventKey={2} href="#memes">
-                            {user? <Button variant="secondary" onClick={handleLogout}>Logout</Button> : <Link to='/login'><Button variant="secondary" >Login</Button></Link> }
-                            </Nav.Link>
-                        </Nav>
+                                {user && <Nav.Link href="#deets"><Image title={user.displayName} style={{ width: '40px', height: '40px' }} src={user.photoURL} roundedCircle /></Nav.Link>}
+                                <Nav.Link eventKey={2} href="#memes">
+                                    {user ? <Button variant="secondary" onClick={handleLogout}>Logout</Button> : <Link to='/login'><Button variant="secondary" >Login</Button></Link>}
+                                </Nav.Link>
+                            </Nav>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
