@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const LeftNav = () => {
     const [feature, setFeature] = useState()
     useEffect(() => {
-        fetch('/public/data/features.json')
+        fetch('https://chef-recipe-hunter-server-site-mohsin6862.vercel.app/features')
             .then(res => res.json())
             .then(data => setFeature(data))
     }, [])
@@ -21,8 +21,8 @@ const LeftNav = () => {
 
 
             <div className='my-5'>
-                <Button className='mb-2' variant="outline-primary"> <FaGoogle /> LogIn With Google</Button>
-                <Button variant="outline-secondary"><FaGithub /> LogIn With Github</Button>
+               <Link to='/login'> <Button className='mb-2' variant="outline-primary"> <FaGoogle /> LogIn With Google</Button></Link>
+                <Link to='/login'><Button variant="outline-secondary"><FaGithub /> LogIn With Github</Button></Link>
 
             </div>
             <div className='my-5'>
